@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Avalon Online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Avalon Online</h1>
+    <div id="connectionForm">
+        <input id="username" placeholder="username">
+        <br>
+        <input id="lobbyid" placeholder="lobby id">
+        <button id="connect">Connect</button>
+    </div>
+    <div id="inLobby" hidden>
+        <table>
+            <th>connected users</th>
+            <td>
+                <ul id="userlist">
+                    <!-- Built by JS -->
+                </ul>
+            </td>
+        </table>
+        <button id="startGame">Start Game</button>
+    </div>
+    <script src="websocketDemo.js"></script>
+</body>
+</html>
