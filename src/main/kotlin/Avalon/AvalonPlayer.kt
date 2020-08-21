@@ -3,13 +3,6 @@ package Avalon
 import AvalonRole
 import io.javalin.websocket.WsContext
 
-class AvalonPlayer {
-    var connection: WsContext? = null
-    val username: String
-    val role: AvalonRole
+data class AvalonPlayer(val username: String, val role: AvalonRole, var connection: WsContext) {
 
-    constructor(username: String, role: AvalonRole) {
-        this.role = role
-        this.username = username
-    }
 }

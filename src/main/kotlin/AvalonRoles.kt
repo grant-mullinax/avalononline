@@ -1,3 +1,3 @@
 enum class AvalonRole {
-    GOODGUY, ASSASSIN, BADGUY, MERLIN
+    GOODGUY, ASSASSIN, MINION, MERLIN
 }

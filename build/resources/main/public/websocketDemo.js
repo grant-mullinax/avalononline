@@ -4,6 +4,14 @@ let id = id => document.getElementById(id);
 //Establish the WebSocket connection and set up event handlers
 let ws = null;
 let username = null;
+let playerCount = 0;
+
+
+function updateGoodGuyCount() {
+    id("goodGuyCount").value = playerCount - id("merlinCount").value - id("asssassinCount").value - id("minioninCount").value
+}
+
+id("minioninCount").addEventListener('change', updateGoodGuyCount);
 
 // Add event listeners to button and input field
 id("connect").addEventListener("click", function () {
@@ -28,6 +36,9 @@ id("connect").addEventListener("click", function () {
                     status.username + (status.connected ? "" : " -dc") + (status.username === username ? " <b>(you)</b>" : "") +
                     "</li>"
                 ).join("");
+
+                playerCount = data.statuses.length;
+                updateGoodGuyCount()
                 break;
 
             case "connectionSuccess":
@@ -46,3 +57,4 @@ id("startGame").addEventListener("click", function () {
     };
     ws.send(JSON.stringify(msg));
 });
+

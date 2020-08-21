@@ -14,6 +14,11 @@ import java.util.concurrent.ConcurrentHashMap
 class AvalonLobby : AvalonState {
     private val usernameMap = ConcurrentHashMap<String, WsContext>()
 
+    val players: List<Pair<String, WsContext>>
+        get() {
+            return usernameMap.entries.map { Pair(it.key, it.value) }
+        }
+
     override fun receiveMessage(ctx: WsMessageContext, message: Message) {
         when (message) {
             is CreateUserMessage -> {
