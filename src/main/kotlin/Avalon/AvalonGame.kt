@@ -21,10 +21,10 @@ class AvalonGame(val id: String) {
                     roles.addAll(Array(message.minionCount) { AvalonRole.MINION })
                     roles.add(AvalonRole.MERLIN)
                     roles.add(AvalonRole.ASSASSIN)
-                    roles.addAll(Array(players.size - message.minionCount - 2) { AvalonRole.GOODGUY })
+                    roles.addAll(Array(players.size - roles.size) { AvalonRole.GOODGUY })
 
 
-                    this.state = AvalonIngame((players zip roles).map { AvalonPlayer(it.first.first, it.second, it.first.second) })
+                    this.state = AvalonIngame((players.shuffled() zip roles).map { AvalonPlayer(it.first.first, it.second, it.first.second) })
                 }
             }
             else -> state.receiveMessage(ctx, message)

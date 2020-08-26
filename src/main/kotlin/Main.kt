@@ -8,19 +8,6 @@ val games = mutableMapOf<String, AvalonGame>()
 val WsContext.gameId: String get() = this.pathParam("game-id")
 
 fun main(args: Array<String>) {
-    /*
-    val klaxon = Klaxon()
-    JavalinJson.toJsonMapper = object : ToJsonMapper {
-        override fun map(obj: Any): String = klaxon.toJsonString(obj)
-    }
-
-    JavalinJson.fromJsonMapper = object : FromJsonMapper {
-        override fun <T> map(json: String, targetClass: Class<T>): T {
-            klaxon.fromJsonObject(klaxon.toJsonObject(json))
-        }
-    }
-     */
-
     Javalin.create {
         it.addStaticFiles("/public")
     }.apply {
